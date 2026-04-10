@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Calendar, Clock, MapPin, ChevronRight, ShoppingCart, Badge } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Calendar, Clock, MapPin, ChevronLeft, ChevronRight, ShoppingCart, Badge } from "lucide-react";
 import { ImageWithFallback } from "@/components/utils/ImageWithFallback";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,55 @@ export default function HomePage() {
 
     return () => clearInterval(timer);
   }, []);
+
+  const newsItems = [
+    {
+      id: 1,
+      title: "Record-Breaking Victory Against Rivals",
+      category: "Match Report",
+      date: "April 5, 2026",
+      image:
+        "https://images.unsplash.com/photo-1721886537583-ea3a257adb9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMG1hdGNoJTIwYWN0aW9uJTIwZ29hbHxlbnwxfHx8fDE3NzU0NzAwMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    },
+    {
+      id: 2,
+      title: "New Captain Announced for 2026 Season",
+      category: "Team News",
+      date: "April 4, 2026",
+      image:
+        "https://images.unsplash.com/photo-1745944756454-938dcb6e62ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBqZXJzZXklMjBtZXJjaGFuZGlzZSUyMHNob3B8ZW58MXx8fHwxNzc1NDcwMDE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    },
+    {
+      id: 3,
+      title: "Youth Academy Produces Three New Stars",
+      category: "Academy",
+      date: "April 3, 2026",
+      image:
+        "https://images.unsplash.com/photo-1760177379323-2b22f8d41707?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMHRyYWluaW5nJTIwZXF1aXBtZW50fGVufDF8fHx8MTc3NTQ3MDAxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+    },
+    {
+      id: 4,
+      title: "Stadium Expansion Plans Revealed",
+      category: "Club News",
+      date: "April 2, 2026",
+      image:
+        "https://images.unsplash.com/photo-1767884162073-b0e3741aad63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMHN0YWRpdW0lMjBuaWdodCUyMGxpZ2h0c3xlbnwxfHx8fDE3NzUzNzI3NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    },
+  ];
+
+  const newsSliderRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollNews = (direction: "left" | "right") => {
+    if (!newsSliderRef.current) {
+      return;
+    }
+
+    const offset = newsSliderRef.current.clientWidth * 0.9;
+    newsSliderRef.current.scrollBy({
+      left: direction === "left" ? -offset : offset,
+      behavior: "smooth",
+    });
+  };
 
   const standings = [
     { position: 1, team: "Strikers FC", played: 32, won: 24, drawn: 5, lost: 3, points: 77, form: ["W", "W", "W", "D", "W"] },
@@ -150,17 +199,42 @@ export default function HomePage() {
               </h2>
               <div className="h-1 w-20 bg-[#0cfe00]" />
             </div>
-            <Link href="/news">
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                View All
-                <ChevronRight className="ml-2 h-4 w-4" />
+            <div className="flex items-center gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                onClick={() => scrollNews("left")}
+                className="border-white/20 text-white hover:bg-white/10"
+                aria-label="Previous news"
+              >
+                <ChevronLeft className="h-4 w-4" />
               </Button>
-            </Link>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                onClick={() => scrollNews("right")}
+                className="border-white/20 text-white hover:bg-white/10"
+                aria-label="Next news"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+              <Link href="/news">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  View All
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
 
-          {/* <Slider {...sliderSettings}>
+          <div
+            ref={newsSliderRef}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [&::-webkit-scrollbar]:hidden"
+          >
             {newsItems.map((item) => (
-              <div key={item.id} className="px-2">
+              <div key={item.id} className="shrink-0 basis-full snap-start sm:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden border-white/10 bg-[#0a0e1a] transition-transform hover:scale-[1.02]">
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
@@ -168,13 +242,13 @@ export default function HomePage() {
                       alt={item.title}
                       className="h-full w-full object-cover"
                     />
-                    <Badge className="absolute top-4 left-4 bg-[#0cfe00] text-black">
+                    <span className="absolute left-4 top-4 rounded bg-[#0cfe00] px-3 py-1 text-xs font-semibold text-black">
                       {item.category}
-                    </Badge>
+                    </span>
                   </div>
                   <CardContent className="p-6">
-                    <p className="font-['Montserrat'] text-sm text-[#8892a6] mb-2">{item.date}</p>
-                    <h3 className="font-['Montserrat'] font-semibold text-white text-lg mb-4 line-clamp-2">
+                    <p className="mb-2 font-['Montserrat'] text-sm text-[#8892a6]">{item.date}</p>
+                    <h3 className="mb-4 line-clamp-2 font-['Montserrat'] text-lg font-semibold text-white">
                       {item.title}
                     </h3>
                     <Button variant="link" className="p-0 text-[#0cfe00] hover:text-[#0cfe00]/80">
@@ -185,7 +259,7 @@ export default function HomePage() {
                 </Card>
               </div>
             ))}
-          </Slider> */}
+          </div>
         </div>
       </section>
 
