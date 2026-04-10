@@ -9,7 +9,7 @@ export default function RegisterPage() {
     <div className="flex min-h-screen bg-[#0a0e1a]">
       {/* Left Side - Image */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0cfe00]/20 to-[#ffd700]/20 z-10" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#0cfe00]/20 to-[#ffd700]/20 z-10" />
         <Image
           src="https://images.unsplash.com/photo-1709994981222-71a403966361?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBjZWxlYnJhdGlvbiUyMGdvYWwlMjBzY29yaW5nJTIwY3Jvd2R8ZW58MXx8fHwxNzc1NDcxMTU5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
           alt="Goal celebration"
@@ -17,9 +17,9 @@ export default function RegisterPage() {
           width={1200}          
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 bg-linear-to-t from-black/80 via-black/40 to-transparent">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#0cfe00] to-[#ffd700]">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-[#0cfe00] to-[#ffd700]">
               <span className="font-['Bebas_Neue'] text-3xl text-black">SF</span>
             </div>
             <div>
@@ -41,7 +41,7 @@ export default function RegisterPage() {
         <div className="mx-auto w-full max-w-md">
           {/* Mobile Logo */}
           <div className="lg:hidden flex items-center justify-center space-x-3 mb-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#0cfe00] to-[#ffd700]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-[#0cfe00] to-[#ffd700]">
               <span className="font-['Bebas_Neue'] text-2xl text-black">SF</span>
             </div>
             <h1 className="font-['Bebas_Neue'] text-3xl tracking-wider text-white">

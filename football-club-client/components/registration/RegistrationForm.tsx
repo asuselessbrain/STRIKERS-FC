@@ -40,7 +40,7 @@ export default function RegistrationForm() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#0cfe00]/10"
+              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/8 focus:ring-4 focus:ring-[#0cfe00]/10"
               placeholder="Enter your full name"
             />
           </div>
@@ -60,7 +60,7 @@ export default function RegistrationForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#0cfe00]/10"
+              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/8 focus:ring-4 focus:ring-[#0cfe00]/10"
               placeholder="Enter your email address"
             />
           </div>
@@ -80,7 +80,7 @@ export default function RegistrationForm() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#0cfe00]/10"
+              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/8 focus:ring-4 focus:ring-[#0cfe00]/10"
               placeholder="Create a secure password"
             />
           </div>
@@ -100,7 +100,7 @@ export default function RegistrationForm() {
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#0cfe00]/10"
+              className="h-12 rounded border-white/10 bg-white/5 pl-12 pr-4 text-[15px] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all placeholder:text-slate-500 hover:border-white/20 hover:bg-white/[0.07] focus:border-[#0cfe00]/60 focus:bg-white/8 focus:ring-4 focus:ring-[#0cfe00]/10"
               placeholder="Re-enter your password"
             />
           </div>
