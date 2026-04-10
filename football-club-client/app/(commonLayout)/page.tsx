@@ -205,7 +205,7 @@ export default function HomePage() {
                 variant="outline"
                 size="icon"
                 onClick={() => scrollNews("left")}
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-black hover:text-white hover:bg-white/10"
                 aria-label="Previous news"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -215,13 +215,13 @@ export default function HomePage() {
                 variant="outline"
                 size="icon"
                 onClick={() => scrollNews("right")}
-                className="border-white/20 text-white hover:bg-white/10"
+                className="border-white/20 text-black hover:text-white hover:bg-white/10"
                 aria-label="Next news"
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
               <Link href="/news">
-                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <Button variant="outline" className="border-white/20 text-black hover:text-white hover:bg-white/10">
                   View All
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -383,7 +383,7 @@ export default function HomePage() {
               <div className="h-1 w-20 bg-[#0cfe00]" />
             </div>
             <Link href="/shop">
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+              <Button variant="outline" className="border-white/20 text-black hover:text-white hover:bg-white/10">
                 Shop All
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
